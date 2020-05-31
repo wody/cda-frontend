@@ -4,6 +4,8 @@
 
 ### Build
 
+A **Node.JS version 12.x** is required to build the website.
+
 Set currect API Endpoint URL either in 
 * `.env` File
 * Environment variable
