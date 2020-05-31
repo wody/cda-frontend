@@ -1,5 +1,9 @@
+const isProd = process.env.NODE_ENV === "production";
+
 module.exports = {
-  experimental: {
-    basePath: "/cdapp",
+  // Use the CDN in production and localhost for development.
+  assetPrefix: isProd ? "/cdapp" : "",
+  env: {
+    PREFIX: isProd ? "/cdapp" : "",
   },
 };
