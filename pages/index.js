@@ -25,7 +25,11 @@ export default function Home() {
             <div className="columns is-vcentered">
               <div className="column">
                 <figure className="image is-128x128 is-pulled-right">
-                  <img className="is-rounded" alt="CDApp" src="/logo.png" />
+                  <img
+                    className="is-rounded"
+                    alt="CDApp"
+                    src={process.env.PREFIX + "/logo.png"}
+                  />
                 </figure>
               </div>
               <div className="column">
