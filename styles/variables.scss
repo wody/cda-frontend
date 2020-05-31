@@ -1,0 +1,11 @@
+@import "~bulma/sass/utilities/_all";
+$primary : #7579FF;
+$secondary : #537ca3;
+$primary-invert: findColorInvert($primary);
+$secondary-invert: findColorInvert($secondary);
+
+$link : $primary;
+
+$colors: mergeColorMaps(("white": ($white, $black), "black": ($black, $white), "light": ($light, $light-invert), "dark": ($dark, $dark-invert), "primary": ($primary, $primary-invert, $primary-light, $primary-dark), "link": ($link, $link-invert, $link-light, $link-dark), "info": ($info, $info-invert, $info-light, $info-dark), "success": ($success, $success-invert, $success-light, $success-dark), "warning": ($warning, $warning-invert, $warning-light, $warning-dark), "danger": ($danger, $danger-invert, $danger-light, $danger-dark)), $custom-colors);
+
+$family-primary : "Baloo Thambi 2", cursive, $family-sans-serif;
