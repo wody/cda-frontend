@@ -15,7 +15,7 @@ NEXT_PUBLIC_API_BASE=<SET_API_URL>
 Now build and export the static site:
 ```
 npm ci
-npm bundle
+npm run bundle
 ```
 
 Deploy the created `cdapp.war` found in the root directory to a **tomcat** server.
