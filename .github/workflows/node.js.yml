@@ -27,9 +27,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run bundle
+      env:
+        NEXT_PUBLIC_API_BASE: ${{ secrets.NEXT_PUBLIC_API_BASE }}
     - name: GitHub Releases
       uses: fnkr/github-action-ghr@v1.3
       if: startsWith(github.ref, 'refs/tags/')
       env:
         GHR_PATH: cdapp.war
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
