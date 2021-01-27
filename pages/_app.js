@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import App from "next/app";
+import { SWRConfig } from "swr";
 import "../styles/main.scss";
 
 class MyApp extends App {
@@ -9,8 +10,8 @@ class MyApp extends App {
     return (
       <div>
         <Head>
-          <meta charset="utf-8" />
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -25,7 +26,13 @@ class MyApp extends App {
           />
           <title>CDA Demo App - TODOs</title>
         </Head>
-        <Component {...pageProps} />
+        <SWRConfig
+          value={{
+            fetcher: (...args) => fetch(...args).then((res) => res.json()),
+          }}
+        >
+          <Component {...pageProps} />
+        </SWRConfig>
       </div>
     );
   }
