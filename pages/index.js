@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import Dashboard from "components/Dashboard";
 import TODOs from "components/TODOs";
-import AddTodo from "components/AddTodo";
 
 export default function Home() {
   const { data: data, mutate: mutateTodo, error } = useSWR(
@@ -45,19 +44,6 @@ export default function Home() {
                   <p className="subtitle">Quick overview</p>
                   <div className="content">
                     <Dashboard open={open}></Dashboard>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div className="tile is-parent">
-              <article className="tile is-child notification is-success">
-                <div className="content">
-                  <p className="subtitle">Todo hinzufügen</p>
-                  <div className="content">
-                    <AddTodo
-                      mutateOpen={mutateOpen}
-                      mutateTodo={mutateTodo}
-                    ></AddTodo>
                   </div>
                 </div>
               </article>
