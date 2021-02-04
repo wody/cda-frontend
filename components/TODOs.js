@@ -8,11 +8,23 @@ export default function TODOs(props) {
   };
 
   const deleteDone = async () => {
-    await fetch(process.env.NEXT_PUBLIC_API_BASE + "/todo/cleanup", {
-      method: "DELETE",
-    });
-    props.mutateTodo();
+    if (confirm("Alle erledigten ToDos löschen?")) {
+      await fetch(process.env.NEXT_PUBLIC_API_BASE + "/todo/cleanup", {
+        method: "DELETE",
+      });
+      props.mutateTodo();
+    }
   };
+
+  const deleteTodo = async (id) => {
+    if (confirm("ToDo löschen?")) {
+      await fetch(process.env.NEXT_PUBLIC_API_BASE + "/todo/" + id, {
+        method: "DELETE",
+      });
+      props.mutateTodo();
+      props.mutateOpen();
+    }
+  }
 
   function severityIcon(severity) {
     switch (severity) {
@@ -58,6 +70,7 @@ export default function TODOs(props) {
               <th>Schwere</th>
               <th>Hinzugefügt am</th>
               <th>Erledigt</th>
+              <th>Löschen</th>
             </tr>
           </thead>
           <tbody>
@@ -82,6 +95,11 @@ export default function TODOs(props) {
                       onChange={() => handleDone(row.id)}
                     />
                   </label>
+                </td>
+                <td>
+                  <span className="icon" onClick={() => deleteTodo(row.id)}>
+                    <i className="fas fa-trash-alt"></i>
+                  </span>
                 </td>
               </tr>
             ))}
