@@ -12,7 +12,6 @@
     "bulma": "^0.9.2",
     "bulma-helpers": "^0.3.12",
     "date-fns": "^2.16.1",
-    "isomorphic-unfetch": "^3.1.0",
     "next": "^10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -20,6 +19,7 @@
     "swr": "^0.4.1"
   },
   "devDependencies": {
-    "archiver": "^5.2.0"
+    "archiver": "^5.2.0",
+    "rimraf": "^3.0.2"
   }
 }

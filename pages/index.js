@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import fetcher from "libs/fetch";
 import Dashboard from "components/Dashboard";
 import TODOs from "components/TODOs";
 import AddTodo from "components/AddTodo";
@@ -7,11 +6,9 @@ import AddTodo from "components/AddTodo";
 export default function Home() {
   const { data: data, mutate: mutateTodo, error } = useSWR(
     process.env.NEXT_PUBLIC_API_BASE + "/todo",
-    fetcher
   );
   const { data: open, mutate: mutateOpen } = useSWR(
     process.env.NEXT_PUBLIC_API_BASE + "/todo/open",
-    fetcher
   );
 
   if (error) return <div>failed to load</div>;
